@@ -4,7 +4,7 @@
 const net = require('net');
 const connect = function () {
   const conn = net.createConnection({
-    host: '127.0.0.1',
+    host: '135.23.222.131',
     port: 50541
   });
   // interpret incoming data as text
@@ -18,12 +18,30 @@ const connect = function () {
   //below prints to terminal when user connecxts to server
   conn.on("connect", () => {
     console.log("Welcome to snek");
-  })
+    conn.write("Name: JCH");
+  });
+
+   // This does not work
+    //it prints but not on their terminal
+  
 
   return conn;
 }
-connect();
+
 
 module.exports = {
-  connect,
+  connect
 }
+
+/*
+mapping the escape command
+
+mapping keys wasd
+extended from the escpe mapping. adding extra if statements
+using conn.on 
+
+third file. created probs input.js
+where you need to pass info
+this iw where play.js is important. 
+play.js will need to take the call and hef o the conn object
+*/
