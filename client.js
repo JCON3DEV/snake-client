@@ -11,7 +11,7 @@ const connect = function () {
   conn.setEncoding('utf8');
   // on(data) event handler 
   // below prints when the game kicks you for idling
-  conn.on("data", (data) => {
+  conn.on("data", (data) => {//incomming
     console.log(`Server says ${data}`)
   });
   // on(connect) event handler
@@ -20,9 +20,11 @@ const connect = function () {
     console.log("Welcome to snek");
     conn.write("Name: JCH");
   });
-
-   // This does not work
-    //it prints but not on their terminal
+  // conn.write("Move: up");
+  // conn.write("Move: down");
+  // conn.write("Move: left");
+  // conn.write("Move: right");
+  setInterval(() => { conn.write("Move: up") }, 1000)
   
 
   return conn;
